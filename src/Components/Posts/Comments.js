@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import Spinner from "../Layouts/Spinner";
 
 import Comment from "./Comment";
 
@@ -11,7 +12,7 @@ class Comments extends Component {
   };
 
   render() {
-    const { comments } = this.props;
+    const { comments, loading } = this.props;
     return (
       <div>
         <Link
@@ -20,12 +21,15 @@ class Comments extends Component {
         >
           Back to Posts
         </Link>
-
-        <div className="grid grid-cols-1 gap-3">
-          {comments.map((comment, i) => {
-            return <Comment key={i.toString()} title={comment.text} />;
-          })}
-        </div>
+        {loading ? (
+          <Spinner />
+        ) : (
+          <div className="grid grid-cols-1 gap-3">
+            {comments.map((comment, i) => {
+              return <Comment key={i.toString()} title={comment.text} />;
+            })}
+          </div>
+        )}
       </div>
     );
   }
