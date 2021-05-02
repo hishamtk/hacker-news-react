@@ -24,9 +24,9 @@ class Comments extends Component {
         {loading ? (
           <Spinner />
         ) : (
-          <div className="grid grid-cols-1 gap-3">
+          <div className="grid grid-cols-1 gap-3 mb-20">
             {comments.map((comment, i) => {
-              if(comment.text === undefined){
+              if (comment.text === undefined) {
                 return false;
               }
               return (
