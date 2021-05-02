@@ -16,8 +16,8 @@ class Comments extends Component {
     return (
       <div>
         <Link
-          to="/"
-          className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center"
+          to="/hackerNews"
+          className="bg-gray-300 m-4 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center"
         >
           Back to Posts
         </Link>
@@ -26,7 +26,16 @@ class Comments extends Component {
         ) : (
           <div className="grid grid-cols-1 gap-3">
             {comments.map((comment, i) => {
-              return <Comment key={i.toString()} title={comment.text} />;
+              if(comment.text === undefined){
+                return false;
+              }
+              return (
+                <Comment
+                  key={i.toString()}
+                  title={comment.text}
+                  user={comment.by}
+                />
+              );
             })}
           </div>
         )}

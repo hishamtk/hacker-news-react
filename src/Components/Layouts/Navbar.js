@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
@@ -13,11 +14,12 @@ function Navbar() {
                 alt="Workflow"
               />
             </div>
-
             <div className="ml-6 flex items-baseline">
-              <p className="text-white px-3 py-2 rounded-md text-3xl font-medium">
-                Hacker News
-              </p>
+              <Link to="/hackerNews">
+                <p className="text-white px-3 py-2 rounded-md text-3xl font-medium">
+                  Hacker News
+                </p>
+              </Link>
             </div>
           </div>
         </div>

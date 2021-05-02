@@ -11,7 +11,6 @@ class App extends Component {
     super(props);
     this.state = { postId: [], posts: [], comments: [], loading: false };
   }
-
   componentDidMount = async () => {
     try {
       this.setState({ loading: true });
@@ -34,16 +33,6 @@ class App extends Component {
       this.setState({ loading: false });
     }
   };
-
-  // serchPost = (posts, id) => {
-  //   for (let i = 0; i < posts.length; i++) {
-  //     console.log(posts[i]);
-  //     if (posts[i].id === id) {
-  //       return posts[i].kids;
-  //     }
-  //   }
-  //   return false;
-  // };
 
   getComments = async (postId) => {
     try {
@@ -84,7 +73,7 @@ class App extends Component {
         <div className="w-10/12 mx-auto">
           <Navbar />
           <Switch>
-            <Route exact path="/">
+            <Route exact path="/hackerNews">
               <Posts
                 postsArray={this.state.posts}
                 loading={this.state.loading}
@@ -92,7 +81,7 @@ class App extends Component {
             </Route>
             <Route
               exact
-              path="/post/:postId"
+              path="/hackerNews/post/:postId"
               render={(props) => (
                 <Comments
                   getComments={this.getComments}
